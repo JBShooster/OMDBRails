@@ -1,0 +1,15 @@
+<h3>Movie Search:</h3>
+
+<%= form_tag "/movies/index", method: "get" do %>
+  <%= label_tag(:m, "Search OMDB for Movies:") %>
+  <%= text_field_tag :search_term, nil, placeholder: "Search for a movie", autofocus: true %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div class= container>
+<ul>
+  <% @search_results.each do |movie| %>
+    <li><%= movie["Title"] %></li>
+  <% end %>
+</ul>
+</div>
